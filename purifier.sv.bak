@@ -1,0 +1,16 @@
+module purifier(clk,reset,in,out,middle);
+	input logic clk,reset;
+	input logic in;
+	output logic out;
+	logic middle;
+	always_ff @(posedge clk) begin
+		if(reset) begin
+			reset <= 0;
+		end
+		else begin
+			middle <= in;
+			out <= middle;
+		end
+	end
+endmodule
+		
